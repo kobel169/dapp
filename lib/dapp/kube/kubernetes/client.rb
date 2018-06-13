@@ -279,7 +279,7 @@ module Dapp
             opts[:ssl_ca_file] = nil
 
             opts[:middlewares] = [*Excon.defaults[:middlewares], Excon::Middleware::RedirectFollower]
-
+            Excon.defaults[:ssl_verify_peer] = false
             opts.merge!(excon_parameters)
           end
         end
